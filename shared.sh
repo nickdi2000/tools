@@ -22,3 +22,18 @@ function savee(){
 }
 
 alias savescript="git add . && git commit -m 'auto update' && git push && source ~/.bashrc"
+
+function sqlimport(){
+	echo "Enter script name (with out .sql)"
+	read script
+	if test -z "$script"
+	then
+	      echo "\$script cannot be empty"
+				exit 1
+	fi
+ 	local db_username=$(node -p "require('dotenv').config();process.env.DB_USERNAME");
+ 	local db_password=$(node -p "require('dotenv').config();process.env.DB_PASSWORD");
+ 	local db_database=$(node -p "require('dotenv').config();process.env.DB_DATABASE");
+ 	echo mysql -u $db_username -p$db_password $db_database < $script.sql
+	mysql -u $db_username -p$db_password $db_database < $script.txt
+}
