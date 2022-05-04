@@ -9,4 +9,4 @@ select d in */; do test -n "$d" && break; echo ">>> Invalid Selection"; done
 cd "$d" && pwd
 }
 
-
+alias savescript="git add . && git commit -m 'auto update' && git push && source ~/.bashrc"
