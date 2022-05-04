@@ -9,6 +9,8 @@ select d in */; do test -n "$d" && break; echo ">>> Invalid Selection"; done
 cd "$d/public_html" && ls && pwd
 }
 
+alias web="cd /home/rat/web && sel"
+
 function savee(){
 	local curr = $(pwd)
 	cd /tools/
