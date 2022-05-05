@@ -37,3 +37,12 @@ function sqlimport(){
  	echo mysql -u $db_username -p$db_password $db_database < $script.sql
 	mysql -u $db_username -p$db_password $db_database < $script.sql
 }
+
+
+function db(){
+        local db_username=$(node -p "require('dotenv').config();process.env.DB_USERNAME");
+        local db_password=$(node -p "require('dotenv').config();process.env.DB_PASSWORD");
+        local db_database=$(node -p "require('dotenv').config();process.env.DB_DATABASE");
+        echo mysql -u $db_username -p$db_password $db_database
+        mysql -u $db_username -p$db_password $db_database
+}
