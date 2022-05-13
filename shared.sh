@@ -22,6 +22,8 @@ function savee(){
 }
 
 alias savescript="git add . && git commit -m 'auto update' && git push && source ~/.bashrc"
+alias htaccess="cp /tools/htaccess .htaccess && echo .htaccess copied"
+alias rem="git remote show origin"
 
 function sqlimport(){
 	echo "Enter script name (with out .sql)"
