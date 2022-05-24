@@ -11,6 +11,8 @@ cd "$d/public_html" && ls && pwd
 
 alias web="cd /home/rat/web && sel"
 
+alias sc="node -e \"console.log(require('./package.json').scripts)\""
+
 function savee(){
 	local curr = $(pwd)
 	cd /tools/
@@ -24,6 +26,7 @@ function savee(){
 alias savescript="git add . && git commit -m 'auto update' && git push && source ~/.bashrc"
 alias htaccess="cp /tools/htaccess .htaccess && echo .htaccess copied"
 alias rem="git remote show origin"
+alias permfix="chmod -R 0755 . && chmod -R o+w"
 
 function sqlimport(){
 	echo "Enter script name (with out .sql)"
