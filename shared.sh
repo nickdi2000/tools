@@ -13,6 +13,21 @@ alias web="cd /home/rat/web && sel"
 
 alias sc="node -e \"console.log(require('./package.json').scripts)\""
 
+function doo(){
+	echo "Which Command to Run?"
+options=(
+"/etc/init.d/apache2 restart"
+"sudo systemctl restart apache2.service"
+"web"
+)
+select com in "${options[@]}";
+do
+echo $com
+$com
+done
+
+}
+
 function savee(){
 	local curr = $(pwd)
 	cd /tools/
