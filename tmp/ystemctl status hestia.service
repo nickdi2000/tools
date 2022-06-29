@@ -1,0 +1,20 @@
+[0;1;31m●[0m hestia.service - LSB: starts the hestia control panel
+   Loaded: loaded (/etc/init.d/hestia; generated)
+   Active: [0;1;31mfailed[0m (Result: exit-code) since Wed 2022-06-29 15:40:01 UTC; 1min 30s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 29114 ExecStart=/etc/init.d/hestia start [0;1;31m(code=exited, status=1/FAILURE)[0m
+    Tasks: 2 (limit: 614)
+   CGroup: /system.slice/hestia.service
+           ├─17809 nginx: master process /usr/local/hestia/nginx/sbin/hestia-nginx
+           └─17810 nginx: worker process
+
+Jun 29 15:39:59 server.webfly.io hestia[29114]: nginx: [warn] "ssl_stapling" ignored, issuer certificate not found for certificate "/usr/local/hestia/ssl/certificate.crt"
+Jun 29 15:39:59 server.webfly.io hestia[29114]: nginx: [emerg] bind() to 0.0.0.0:8083 failed (98: Address already in use)
+Jun 29 15:39:59 server.webfly.io hestia[29114]: nginx: [emerg] bind() to 0.0.0.0:8083 failed (98: Address already in use)
+Jun 29 15:40:00 server.webfly.io hestia[29114]: nginx: [emerg] bind() to 0.0.0.0:8083 failed (98: Address already in use)
+Jun 29 15:40:00 server.webfly.io hestia[29114]: nginx: [emerg] bind() to 0.0.0.0:8083 failed (98: Address already in use)
+Jun 29 15:40:01 server.webfly.io hestia[29114]: nginx: [emerg] bind() to 0.0.0.0:8083 failed (98: Address already in use)
+Jun 29 15:40:01 server.webfly.io hestia[29114]: nginx: [emerg] still could not bind()
+Jun 29 15:40:01 server.webfly.io systemd[1]: [0;1;39m[0;1;31m[0;1;39mhestia.service: Control process exited, code=exited status=1[0m
+Jun 29 15:40:01 server.webfly.io systemd[1]: [0;1;39m[0;1;31m[0;1;39mhestia.service: Failed with result 'exit-code'.[0m
+Jun 29 15:40:01 server.webfly.io systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start LSB: starts the hestia control panel.[0m

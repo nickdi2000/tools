@@ -18,7 +18,7 @@ function doo(){
 options=(
 "/etc/init.d/apache2 restart"
 "sudo systemctl restart apache2.service"
-"web"
+"systemctl status hestia.service"
 )
 select com in "${options[@]}";
 do
