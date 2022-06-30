@@ -5,6 +5,7 @@ alias sss="source ~/.bashrc && echo sourced"
 
 function sel(){
 printf "Please select folder:\n"
+COLUMNS=0
 select d in */; do test -n "$d" && break; echo ">>> Invalid Selection"; done
 cd "$d/public_html" && ls && pwd
 }
@@ -13,12 +14,20 @@ alias web="cd /home/rat/web && sel"
 
 alias sc="node -e \"console.log(require('./package.json').scripts)\""
 
+function sslme(){
+	sudo systemctl stop nginx
+	sudo certbot certonly --standalone --agree-tos --preferred-challenges http -d $*
+	sudo systemctl start nginx
+	sudo certbot --nginx --agree-tos --preferred-challenges http -d $*
+}
+
 function doo(){
 	echo "Which Command to Run?"
 options=(
 "/etc/init.d/apache2 restart"
 "sudo systemctl restart apache2.service"
 "systemctl status hestia.service"
+"sudo systemctl restart nginx"
 )
 select com in "${options[@]}";
 do
@@ -38,6 +47,7 @@ function savee(){
 	cd "$curr"
 }
 
+alias fixhestia="sed -i 's/8083/8099/' /usr/local/hestia/nginx/conf/nginx.conf"
 alias savescript="git add . && git commit -m 'auto update' && git push && source ~/.bashrc"
 alias htaccess="cp /tools/htaccess .htaccess && echo .htaccess copied"
 alias rem="git remote show origin"
