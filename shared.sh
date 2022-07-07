@@ -37,6 +37,10 @@ done
 
 }
 
+function show(){
+	echo sudo certbot --nginx -d example.com -d www.example.com \
+}
+
 function savee(){
 	local curr = $(pwd)
 	cd /tools/
