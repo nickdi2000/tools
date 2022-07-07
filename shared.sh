@@ -38,7 +38,7 @@ done
 }
 
 function show(){
-	echo sudo certbot --nginx -d example.com -d www.example.com \
+	echo sudo certbot --nginx -d example.com -d www.example.com ;
 }
 
 function savee(){
@@ -48,7 +48,7 @@ function savee(){
 	git commit -m "auto_update"
 	git push
 	source ~/.bashrc
-	cd "$curr"
+	cd $curr
 }
 
 alias fixhestia="sed -i 's/8083/8099/' /usr/local/hestia/nginx/conf/nginx.conf"
