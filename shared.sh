@@ -14,6 +14,17 @@ alias web="cd /home/rat/web && sel"
 
 alias sc="node -e \"console.log(require('./package.json').scripts)\""
 
+#adding a new alias
+newal() {
+    echo -n "Enter the alias shortcut key: "
+    read alias_key
+    echo -n "Enter the command it should execute: "
+    read alias_command
+    echo "alias $alias_key='$alias_command'" >> ~/.zshrc
+    echo "Alias added. Reload your zsh configuration or restart the terminal for it to take effect."
+}
+
+
 function sslme(){
 	sudo systemctl stop nginx
 	sudo certbot certonly --standalone --agree-tos --preferred-challenges http -d $*
