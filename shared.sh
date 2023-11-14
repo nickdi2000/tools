@@ -25,6 +25,29 @@ newal() {
 }
 
 
+# Help alias script
+function help_menu() {
+    echo "Select a command to execute:"
+    echo "1) Generate a Certbot SSL certificate"
+    echo "2) Show Nginx logs"
+    echo "3) Check disk space usage"
+    echo "4) Show current memory usage"
+    echo "5) List active processes"
+    read -p "Enter your choice (or any other key to exit): " choice
+
+    case $choice in
+        1) sudo certbot --nginx ;;  # Modify as per your Certbot usage
+        2) sudo tail -f /var/log/nginx/access.log ;;  # Adjust log path if necessary
+        3) df -h ;;
+        4) free -m ;;
+        5) top ;;
+        *) echo "Exiting help menu." && return ;;
+    esac
+}
+
+alias h=help_menu
+
+
 function sslme(){
 	sudo systemctl stop nginx
 	sudo certbot certonly --standalone --agree-tos --preferred-challenges http -d $*
